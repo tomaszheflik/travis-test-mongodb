@@ -9,10 +9,10 @@ go:
 addons:
   hosts:
     - local.dev
-env:
-  matrix:
-  - MONGODB_HOST=mongodb://localhost
-  - MONGODB_HOST=local.dev
+#env:
+#  matrix:
+#  - MONGODB_HOST=mongodb://localhost
+#  - MONGODB_HOST=local.dev
 
 services:
   - docker
