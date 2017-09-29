@@ -20,7 +20,7 @@ before_install:
 script:
     - go test
     - go run main.go
-    - go build -o mdb_test
+    - go build -o mdb_tester
 
 after_success:
   - docker build -t heflik/mongo_tester .
