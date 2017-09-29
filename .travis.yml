@@ -5,7 +5,7 @@ language: go
 go:
   - 1.8
   - 1.9
-  
+
 addons:
   hosts:
     - local.dev
@@ -32,4 +32,4 @@ after_success:
     - ./test.sh
     - docker build -t heflik/mongo_tester .
     - docker images
-    - docker run -it heflik/mongo_tester
+    - docker run -it -e mongodb_host=$MONGODB_HOST heflik/mongo_tester
