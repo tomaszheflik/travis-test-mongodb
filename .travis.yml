@@ -22,9 +22,11 @@ script:
     - go test
     - go run main.go
     - go build -o mdb_tester
-    - ./test.sh
+
 
 after_success:
-  - docker build -t heflik/mongo_tester .
-  - docker images
-  - docker run -it heflik/mongo_tester
+    - chmod a+x ./test.sh
+    - ./test.sh
+    - docker build -t heflik/mongo_tester .
+    - docker images
+    - docker run -it heflik/mongo_tester
