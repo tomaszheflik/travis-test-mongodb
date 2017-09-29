@@ -2,8 +2,9 @@ package main
 
 import (
         "fmt"
-	"log"
+        "os"
         "gopkg.in/mgo.v2"
+        "log"
         "gopkg.in/mgo.v2/bson"
 )
 
@@ -13,7 +14,14 @@ type Person struct {
 }
 
 func main() {
-        session, err := mgo.Dial("server1.example.com,server2.example.com")
+        // get mongodb host from env
+        mongodb_host := os.Getenv("MONGODB_HOST")
+        if mongodb_host == "" {
+                mongodb_host = "mongodb://localhost"
+        }
+        fmt.Printf("Using mongodb host: %s\n", mongodb_host)
+
+        session, err := mgo.Dial(mongodb_host)
         if err != nil {
                 panic(err)
         }

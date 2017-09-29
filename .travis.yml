@@ -2,4 +2,12 @@ language: go
 
 go:
   -1.8
-service: mongodb
+
+services: mongodb
+
+before_install:
+    - go get -v github.com/tomaszheflik/vectors
+
+script:
+    - go test
+    - go run main.go
