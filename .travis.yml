@@ -5,16 +5,19 @@ language: go
 go:
   - 1.8
   - 1.9
-
+  
+addons:
+  hosts:
+    - local.dev
 env:
   matrix:
   - MONGODB_HOST=mongodb://localhost
-  - MONGODB_HOST=localhost
+  - MONGODB_HOST=local.dev
 
 services:
   - docker
   - mongodb
-  
+
 before_install:
     - go get -v github.com/tomaszheflik/vectors
 
