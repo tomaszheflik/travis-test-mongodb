@@ -23,5 +23,6 @@ script:
     - go build -o mdb_test
 
 after_success:
-  - docker build -t mongo_tester .
-  - docker run -d --rm --name mongo_tester mongo_tester
+  - docker build -t heflik/mongo_tester .
+  - docker images
+  - docker run -it heflik/mongo_tester
