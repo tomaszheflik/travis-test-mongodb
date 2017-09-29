@@ -9,10 +9,10 @@ go:
 addons:
   hosts:
     - local.dev
-#env:
-#  matrix:
-#  - MONGODB_HOST=mongodb://localhost
-#  - MONGODB_HOST=local.dev
+env:
+  matrix:
+  - MONGODB_HOST=mongodb://localhost
+  - MONGODB_HOST=local.dev
 
 services:
   - docker
@@ -20,16 +20,15 @@ services:
 
 before_install:
     - go get -v github.com/tomaszheflik/vectors
-    - chmod a+x ./test.sh
-    - ./test.sh
 
 script:
     - go test
     - go run main.go
     - go build -o mdb_tester
 
-
 after_success:
+    - chmod a+x ./test.sh
+    - ./test.sh
     - docker build -t heflik/mongo_tester .
     - docker images
-    - docker run -it -e MONGODB_HOST=$MONGODB_HOST heflik/mongo_tester
+    - docker run -it -e MONGODB_HOST=${MONGODB_HOST} heflik/mongo_tester
