@@ -12,9 +12,9 @@ env:
   - MONGODB_HOST=localhost
 
 services:
-  - mongodb
   - docker
-
+  - mongodb
+  
 before_install:
     - go get -v github.com/tomaszheflik/vectors
 
