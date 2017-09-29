@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 echo "In test bash script"
-pwd
-ls -la
+export MONGODB_HOST="$(/sbin/ip route|awk '/default/ { print $3 }')"
