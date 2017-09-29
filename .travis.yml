@@ -4,6 +4,7 @@ language: go
 
 go:
   - 1.8
+  - 1.9
 
 env:
   matrix:
@@ -21,6 +22,7 @@ script:
     - go test
     - go run main.go
     - go build -o mdb_tester
+    - /bin/sh ls -la
 
 after_success:
   - docker build -t heflik/mongo_tester .
