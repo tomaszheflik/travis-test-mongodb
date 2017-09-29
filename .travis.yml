@@ -5,7 +5,10 @@ go:
   - 1.9
 
 env:
+  matrix:
   - MONGODB_HOST=mongodb://localhost
+  - MONGODB_HOST=localhost
+  
 services: mongodb
 
 before_install:
