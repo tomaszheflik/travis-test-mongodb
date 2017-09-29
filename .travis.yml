@@ -8,8 +8,10 @@ env:
   matrix:
   - MONGODB_HOST=mongodb://localhost
   - MONGODB_HOST=localhost
-  
-services: mongodb
+
+services:
+  - mongodb
+  - docker
 
 before_install:
     - go get -v github.com/tomaszheflik/vectors
@@ -17,3 +19,8 @@ before_install:
 script:
     - go test
     - go run main.go
+    - go build -o mdb_test
+
+after_success:
+  - docker build -t mongo_tester .
+  - docker run -d --rm --name mongo_tester mongo_tester
