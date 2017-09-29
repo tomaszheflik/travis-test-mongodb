@@ -1,9 +1,12 @@
 language: go
 
 go:
-  -1.8
+  - 1.8
+  - 1.9
 
-#services: mongodb
+env:
+  - MONGODB_HOST=mongodb://localhost
+services: mongodb
 
 before_install:
     - go get -v github.com/tomaszheflik/vectors

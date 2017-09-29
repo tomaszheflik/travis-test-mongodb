@@ -17,7 +17,7 @@ func main() {
         // get mongodb host from env
         mongodb_host := os.Getenv("MONGODB_HOST")
         if mongodb_host == "" {
-                mongodb_host = "mongodb://localhost"
+                mongodb_host = "localhost"
         }
         fmt.Printf("Using mongodb host: %s\n", mongodb_host)
 
