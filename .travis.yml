@@ -29,7 +29,7 @@ script:
 after_success:
     - chmod a+x ./test.sh
     - ./test.sh
-    - docker create network mongo-net
+    - docker network create mongo-net
     - docker network ls
     - docker run -d --network=mongo-net -p 28000:27017 --name mongodb mongo
     - docker build -t heflik/mongo_tester .
