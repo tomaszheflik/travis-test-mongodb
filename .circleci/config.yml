@@ -27,3 +27,8 @@ jobs:
 
       - image: mongo:2.6.8
         command: [mongod, --smallfiles]
+    steps:
+      - checkout
+      - run: go get -v -t -d ./...
+      - run: go test -v ./...
+      - run: go run main.go
