@@ -33,4 +33,4 @@ after_success:
     - docker build -t heflik/mongo_tester .
     - docker images
     - docker ps
-    - docker run -it --link nomgo:mongo -e MONGODB_HOST="mongodb://mongo:28000" heflik/mongo_tester
+    - docker run -it --link mongo:mongo -e MONGODB_HOST="mongodb://mongo:28000" heflik/mongo_tester
