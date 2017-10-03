@@ -2,12 +2,12 @@ version: 2
 jobs:
   build:
     docker:
+      - image: circleci/golang:1.8
+
       - image: mongo:2.6.8
         command: [mongod, --smallfiles]
 
-      - image: circleci/golang:1.8
-
-    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+   working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     environment:
       - MONGODB_HOST: "127.0.0.1"
     steps:
