@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: mongo:2.6.8
+      #- image: mongo:2.6.8
 
       # specify the version
       - image: circleci/golang:1.8
