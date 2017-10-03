@@ -29,7 +29,7 @@ script:
 after_success:
     - chmod a+x ./test.sh
     - ./test.sh
-    - docker run -d -p 27017:28000 --name mongo mongo
+    - docker run -d -P --name mongo mongo
     - docker build -t heflik/mongo_tester .
     - docker images
     - docker ps
