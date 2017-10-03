@@ -4,7 +4,7 @@
 version: 2
 machine:
   services:
-    - mongo
+    - mongodb
 jobs:
   build:
     docker:
@@ -21,6 +21,8 @@ jobs:
     ####   /go/src/github.com/circleci/go-tool
     ####   /go/src/bitbucket.org/circleci/go-tool
     working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+    environment:
+      - MONGODB_HOST: "localhost"
     steps:
       - checkout
 
