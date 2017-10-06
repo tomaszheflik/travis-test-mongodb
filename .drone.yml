@@ -1,0 +1,8 @@
+# Pipeline for drone
+pipeline:
+  build:
+    image: golang
+    commands:
+      - go get
+      - go build
+      - go run main.go
