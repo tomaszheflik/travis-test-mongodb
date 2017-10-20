@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "In test bash script"
+echo "In test bash script ECHO"
