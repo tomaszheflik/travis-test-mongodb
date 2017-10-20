@@ -8,5 +8,8 @@ pipeline:
     commands:
       - go get
       - go build
-      - go test
       - go run main.go
+      
+services:
+  mongo:
+    image: mongo:3.0
