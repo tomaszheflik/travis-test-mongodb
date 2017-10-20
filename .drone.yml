@@ -5,6 +5,8 @@ workspace:
 pipeline:
   build:
     image: golang
+    environment:
+      - MONGODB_HOST=mongo
     commands:
       - sleep 45
       - go get
