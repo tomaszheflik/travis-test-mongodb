@@ -1,5 +1,7 @@
 # Pipeline for drone
-
+workspace:
+  base: /go
+  
 pipeline:
   build:
     image: golang
